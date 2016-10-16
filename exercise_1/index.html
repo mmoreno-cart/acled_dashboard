@@ -1,0 +1,99 @@
+<html>
+    <head>
+        <title>Building dashboards</title>
+        
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+        <link rel="stylesheet" href="css/bootstrap.min.css"> <!-- Layout -->
+		<link rel="stylesheet" type="text/css" href="css/dc.css"/> <!-- Chart library -->
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css"/> <!-- Map library -->
+		<link rel="stylesheet" href="css/MarkerCluster.css" /> <!-- Map library plugin -->
+		<link rel="stylesheet" href="css/MarkerCluster.Default.css" /> <!-- Map library plugin -->
+		
+        <link rel="stylesheet" type="text/css" href="css/site.css"/> <!-- Custom styles -->
+		
+    </head>
+    <body class="container">
+		<div class="row" id="header">
+			<h1><img src="images/logo_geong16.png" id="logo" height="42">ACLED Events Database, 2016 <small>| Building dashboards</small></h1>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-3">
+				<select id="country-selector" class="form-control">
+					<option value="">-- select a country --</option>
+				</select>
+			</div>
+		</div>
+		<div id="dashboard-container">
+			<hr>
+			<div class="row" id="loader-container">
+			
+			</div>
+			<div class="row" id="navbar">
+				<div class="col-md-12">
+					<div class="col-md-4">
+						<button type="button" class="btn btn-primary btn-sm" onclick="javascript:dc.filterAll(); dc.renderAll();">Reset</button>
+						<p style="display:inline;">Data source: <a href="http://www.acleddata.com/data/acled-api/" target="_blank"><img src="images/acled_logo211.png" id="source-img" height="20"></a></p>
+					</div>
+					<div id="filter-indicator" class="col-md-4 text-right">
+						<h4>Filtered events <span class="filter-count indicator"></span></h4>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6">
+					<div id="map"></div>
+				</div>
+				<div class="col-md-6">
+					<div class="row">
+						<div id="chart-1" class="col-md-6 text-center"></div>
+						<div id="chart-2" class="col-md-6 text-center"></div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-offset-6">
+					<div class="row">
+						<div id="chart-3" class="col-md-6 text-center"></div>
+						<div id="chart-4" class="col-md-6 text-center"></div>
+					</div>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div id="chart-5" class="col-md-12 text-center"></div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-md-12">
+					<table id="table" class="table table-hover dc-data-table"></table>
+				</div>
+			</div>
+		</div>
+		
+		<!-- Test data in local file -->
+        <!--<script src="data/adled_api_nigeria_2016.js"></script>-->
+
+		<!-- Sample Acled API -->
+        <script src="js/acled_sample_api/acled_sample_api.js"></script>
+		
+		<!-- JS libraries -->
+        <script src="js/jquery.js"></script>
+        <script src="js/d3.min.js"></script>
+		<script src="js/dc.js"></script>
+        <script src="js/crossfilter.v1.min.js"></script>
+        <script src="js/leaflet.js"></script>
+		<script src="js/leaflet.markercluster.js"></script>
+		<!-- /JS libraries -->
+		
+		<!-- Custom scripts -->
+        <!-- <script src='js/custom/Dashboard.js'></script> -->
+        <!-- <script src='js/custom/Map.js'></script> -->
+        <!-- <script src='js/custom/DashboardMapLink.js'></script> -->
+        <script src='js/custom/site.js'></script>
+		<!-- /Custom scripts -->
+		
+    </body>
+</html>

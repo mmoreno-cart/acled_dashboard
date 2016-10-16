@@ -52,7 +52,6 @@ function initDashboard(data){
 	
 	// Dimensions
 	cf.dim = {};
-	cf.dim.event_type = cf.dimension(function(d){ return d.event_type; });
 	cf.dim.admin1 = cf.dimension(function(d){ return d.admin1; });
 	cf.dim.data_id = cf.dimension(function(d){ return d.data_id; });
 	cf.dim.latitude = cf.dimension(function(d){ return +d.latitude; });
@@ -61,7 +60,6 @@ function initDashboard(data){
 	
 	// Groups
 	cf.grp = {};
-	cf.grp.event_type = cf.dim.event_type.group();
 	cf.grp.admin1 = cf.dim.admin1.group().reduceSum(function(d) { return d.fatalities; });
 	cf.grp.data_id = cf.dim.data_id.group();
 	cf.grp.latitude = cf.dim.latitude.group();
@@ -72,7 +70,6 @@ function initDashboard(data){
 	
 	/* Charts */
 	charts.admin1 = dc.rowChart('#chart-1');
-	charts.event_type = dc.pieChart('#chart-2');
 	charts.event_date = dc.barChart('#chart-5');
 	charts.Table = dc.dataTable('.dc-data-table');
 
@@ -88,14 +85,9 @@ function initDashboard(data){
 		.colorAccessor(function(d, i){ return 0;})
 		.xAxis().ticks(3);//.tickFormat(d3.format("g"));
 	
-	$(dom.chart2).html('<h4>Event type</h4>');
-	charts.event_type
-        .dimension(cf.dim.event_type)
-        .group(cf.grp.event_type)
-        .width(180)
-        .height(180)
-        .radius(80)
-        .innerRadius(30);
+	
+	// ADD EVENT TYPE CHART
+	
 	
 	// Date chart
     charts.event_date.width(1000)
