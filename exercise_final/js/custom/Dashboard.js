@@ -12,7 +12,6 @@ var dom = {
 var cf;
 var filterFromCode = false;
 
-/* Asignación gráficos */
 var charts = {};
 
 // Load dashboard from received data
@@ -27,7 +26,7 @@ function initDashboard(data){
 		initMap('map');		
 	}
 	
-	/* Ajuste de datos */
+	/* Data adjustment */
 	var clean_data = [];
 	var admin1_list = [];
 	data.forEach(function (d) {
@@ -79,7 +78,6 @@ function initDashboard(data){
 	/* Charts */
 	charts.admin1 = dc.rowChart('#chart-1');
 	charts.event_type = dc.pieChart('#chart-2');
-	//charts.source = dc.rowChart('#chart-3');
 	charts.event_date = dc.barChart('#chart-5');
 	charts.Table = dc.dataTable('.dc-data-table');
 
