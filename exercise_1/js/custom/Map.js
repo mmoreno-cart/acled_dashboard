@@ -16,16 +16,10 @@ function initMap(idmap){
 		subdomains: 'abcd',
 		maxZoom: 19
 	});
-	/*var Geoeuskadi = L.tileLayer.wms("http://www.geo.euskadi.eus/WMS_ORTOARGAZKIAK", {
-		layers: 'ORTO_EGUNERATUENA_MAXIMA_ACTUALIZADA',
-		format: 'image/png',
-		//transparent: true,
-		attribution: "Eusko Jaurlaritza / Gobierno Vasco"
-	});*/
+	
 	var basemaps = {
 		'HOT': OpenStreetMap_HOT,
 		'Light': CartoDB_Positron,
-		//'Satelite': Geoeuskadi
 	};
 	
 	// Map definition
