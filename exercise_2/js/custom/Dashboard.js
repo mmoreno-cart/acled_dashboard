@@ -39,10 +39,10 @@ function initDashboard(data){
 			if (!d.source || d.source == '') {
 				d.source = 'Not available';
 			}
-			var dateFormat = d3.time.format('%Y-%m-%d'); // Format in which data come
+			var parseTime = d3.timeParse('%Y-%m-%d'); // Format in which data come
 			var event_date_split = d.event_date.split('-');
 			d.event_date = (new Number(event_date_split[0]) + 2000) + '-' + event_date_split[1] + '-' + event_date_split[2];
-			d.dd = dateFormat.parse(d.event_date);
+			d.dd = parseTime(d.event_date);
 			clean_data.push(d);
 		}
 	});
@@ -97,7 +97,7 @@ function initDashboard(data){
         .group(cf.grp.dd_COUNT)
         .centerBar(true)
         .gap(1)
-        .x(d3.time.scale().domain([new Date(2016, 0, 1), new Date(2017, 0, 1)]))
+        .x(d3.scaleTime().domain([new Date(2016, 0, 1), new Date(2017, 0, 1)]))
 		.yAxis().ticks(3);
 		
 	dc.dataCount("#filter-indicator")
